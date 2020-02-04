@@ -1,6 +1,6 @@
 var express = require('express'),
     app = express(),
-    //https = require('https'),
+    https = require('https'),
     http = require('http'),
     bodyParser = require('body-parser'),
     url = require('url');
@@ -25,7 +25,7 @@ function writeHeader(res) {
 }
 
 function create_reservation_direct(res,ItemNum,OrgCode,SubInv,OnhandQty){
-	var uname = "SCM IMPU", pwd = "Oracle123";
+	var uname = "SCM IMPU1", pwd = "Oracle123";
   var callback_url = "https://edrx-dev1.fa.us2.oraclecloud.com/fscmRestApi/resources/11.13.18.05/inventoryReservations";
   var callback = url.parse(callback_url);
   var req_body = {
@@ -144,7 +144,7 @@ logger.configure('ibmms.itemsearch', {
 router.post('/rsv/:org_code/:sub_inv/:item_num/:onhand_qty', function (req, res) {
   logger.emit('ibmms.itemsearch.create_reservation', {source: 'CreateReservation',
     message: 'Create Reservation for Item - '+req.params.item_num});
-  create_reservation_api(res, req.params.item_num, req.params.org_code,req.params.sub_inv,req.params.onhand_qty);
+  create_reservation_direct(res, req.params.item_num, req.params.org_code,req.params.sub_inv,req.params.onhand_qty);
 });
 
 module.exports = router;

@@ -68,10 +68,10 @@ var //onhand_source = onhand_source_init+"/onhandquery/find/",
     //itemsrch_source = "http://192.168.65.128:8091/item_num/find/";
     itemsrch_path = "/item_num/find/",
     protocal = "http://",
-    onhand_port = "31092",
-    itemsearch_port = "31091";
-    //onhand_port = "8092",
-    //itemsearch_port = "8091";
+    //onhand_port = "31092",
+    //itemsearch_port = "31091";
+    onhand_port = "8092",
+    itemsearch_port = "8091";
 
 function render_page(p_page_txt,res){
   res.render('index.html', {

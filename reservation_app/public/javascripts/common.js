@@ -152,6 +152,7 @@ function createReservation(rw) {
     return;
   }*/
   var inp = org_code+"/"+sub_inv+"/"+item_num+"/"+rsv_qty;
+  alert(inp);
   if(window.XMLHttpRequest){
     xhttp=new XMLHttpRequest();//for Chrome, mozilla etc
   }else if(window.ActiveXObject){
@@ -165,6 +166,7 @@ function createReservation(rw) {
         var crt_rsv_resp = JSON.parse(this.responseText);
         if(crt_rsv_resp.status == "Success"){
           document.getElementById("reqtable").rows[i].cells[5].innerHTML = crt_rsv_resp.data.ReservationId;
+          document.getElementById("reqtable").rows[i].cells[1].innerHTML = onhand_qty - rsv_qty;
           alert("Reservation created successfully, Reservation id: " + crt_rsv_resp.data.ReservationId);
         }else{
           alert("Error: "+crt_rsv_resp.data);
