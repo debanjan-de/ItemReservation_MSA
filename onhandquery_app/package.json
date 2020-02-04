@@ -11,7 +11,8 @@
     "express": "latest",
     "path": "latest",
     "http": "latest",
-    "request": "latest"
+    "request": "latest",
+    "follow-redirects": "latest"
   },
   "devDependencies": {
     "node-gyp": "^3.6.2"
