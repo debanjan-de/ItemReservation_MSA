@@ -5,7 +5,7 @@ metadata:
   labels:
     app: itemreservation-msa
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
   - port: 8093
     targetPort: 8093
@@ -29,6 +29,12 @@ spec:
     spec:
       containers:
       - name: reservation
-        image: docker.io/debanjande/ora-reservation-v1
+        image: docker.io/debanjande/ora-reservation-v1:06feb2020
+        imagePullPolicy: Always
+        env:
+          - name: "APP_ITEMSEARCH_HOSTNAME"
+            value: "129.213.177.51"
+          - name: "APP_ONHAND_HOSTNAME"
+            value: "129.213.189.107"
         ports:
         - containerPort: 8093

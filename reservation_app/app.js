@@ -68,13 +68,15 @@ var //onhand_source = onhand_source_init+"/onhandquery/find/",
     //itemsrch_source = "http://192.168.65.128:8091/item_num/find/";
     itemsrch_path = "/item_num/find/",
     protocal = "http://",
+    itemsearch_hostname = process.env.APP_ITEMSEARCH_HOSTNAME||'localhost',
+    onhand_hostname = process.env.APP_ONHAND_HOSTNAME||'localhost',
     //onhand_port = "31092",
     //itemsearch_port = "31091";
     onhand_port = "8092",
     itemsearch_port = "8091";
 
 function render_page(p_page_txt,res){
-  res.render('index.html', {
+  var page_txt = {
     title:p_page_txt.title,
     description:p_page_txt.description,
     page_title:p_page_txt.page_title,
@@ -110,6 +112,8 @@ function render_page(p_page_txt,res){
     itemnum_srch_path:itemsrch_path,
     onhand_srch_path:onhand_path,
     protocal:protocal,
+    itemsearch_hostname:itemsearch_hostname,
+    onhand_hostname:onhand_hostname,
     itemnum_srch_port:itemsearch_port,
     onhand_srch_port:onhand_port,
     home_txt:p_page_txt.home_txt,
@@ -122,7 +126,9 @@ function render_page(p_page_txt,res){
 	  itemsuborg_txt_shrt: p_page_txt.itemsuborg_txt_shrt,
 	  itemrsvqty_txt: p_page_txt.itemrsvqty_txt,
 	  itemrsvqty_txt_shrt: p_page_txt.itemrsvqty_txt_shrt
-  });
+  };
+  console.log('page_txt::'+JSON.stringify(page_txt,0,4));
+  res.render('index.html', page_txt);
 }
 
 app.use('/crt_rsv', crt_rsv);

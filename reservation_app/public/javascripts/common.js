@@ -4,7 +4,8 @@ function clearText(field){
 }
 
 function getItemDetailsText(){
-  var inp = document.getElementById("itemnum").value, itemsearch_url = "{{ protocal }}"+window.location.hostname+":{{ itemnum_srch_port }}{{ itemnum_srch_path }}"+inp;
+  var inp = document.getElementById("itemnum").value, itemsearch_url = "{{ protocal }}"+"{{ itemsearch_hostname }}"//window.location.hostname
+  +":{{ itemnum_srch_port }}{{ itemnum_srch_path }}"+inp;
   //alert(itemsearch_url);
   if(window.XMLHttpRequest){
     xhttp=new XMLHttpRequest();//for Chrome, mozilla etc
@@ -152,7 +153,7 @@ function createReservation(rw) {
     return;
   }*/
   var inp = org_code+"/"+sub_inv+"/"+item_num+"/"+rsv_qty;
-  alert(inp);
+  //alert(inp);
   if(window.XMLHttpRequest){
     xhttp=new XMLHttpRequest();//for Chrome, mozilla etc
   }else if(window.ActiveXObject){
@@ -185,7 +186,8 @@ function getOnhandDetailsText(rw){
   var orgcode = document.getElementById("reqtable").rows[i].cells[2].innerHTML,
       itemnum = document.getElementById("reqtable").rows[i].cells[0].innerHTML;
   var inp = orgcode+"/"+itemnum;
-  var onhand_url = "{{ protocal }}"+window.location.hostname+":{{ onhand_srch_port }}{{ onhand_srch_path }}"+inp;
+  var onhand_url = "{{ protocal }}"+"{{ onhand_hostname }}"//window.location.hostname
+  +":{{ onhand_srch_port }}{{ onhand_srch_path }}"+inp;
   //alert(onhand_url);
   if(window.XMLHttpRequest){
     xhttp=new XMLHttpRequest();//for Chrome, mozilla etc
