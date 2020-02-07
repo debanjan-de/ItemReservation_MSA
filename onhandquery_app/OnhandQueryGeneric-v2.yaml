@@ -29,6 +29,6 @@ spec:
     spec:
       containers:
       - name: onhandquery
-        image: docker.io/debanjande/ora-onhandquery-v1
+        image: docker.io/debanjande/ora-onhandquery-v1:feb2020
         ports:
         - containerPort: 8092
