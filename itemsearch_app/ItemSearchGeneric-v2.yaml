@@ -5,7 +5,7 @@ metadata:
   labels:
     app: itemsearch-msa
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
   - port: 8091
     targetPort: 8091
@@ -32,6 +32,7 @@ spec:
     spec:
       containers:
       - name: itemsearch
-        image: docker.io/debanjande/ora-itemsearch-v1
+        image: docker.io/debanjande/ora-itemsearch-v1:04feb2020
+        imagePullPolicy: Always
         ports:
         - containerPort: 8091

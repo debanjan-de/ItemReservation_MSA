@@ -32,7 +32,8 @@ function find_item_api(res,itemNum,OrgCode){
 	console.log(new Date(Date.now()).toLocaleString()+":: "+"Item string = "+item_str);
 	var options = {
 	  //host: host_name,
-    url: "https://edrx-dev1.fa.us2.oraclecloud.com/fscmRestApi/resources/11.13.18.05/itemsV2?fields=ItemId,ItemNumber,ItemDescription,OrganizationCode&onlyData=true&q=ItemNumber=IBM14",
+    url: "https://edrx-dev1.fa.us2.oraclecloud.com/fscmRestApi/resources/11.13.18.05/itemsV2?"
+         +"fields=ItemId,ItemNumber,ItemDescription,OrganizationCode&onlyData=true"+ item_str,
 	  //port: 80,
 	  //path: "/fscmRestApi/resources/11.13.18.05/itemsV2?fields=ItemId,ItemNumber,ItemDescription,OrganizationCode&onlyData=true"+
 	  //"OrganizationCode='" + OrgCode + "'" +
